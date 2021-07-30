@@ -1,0 +1,103 @@
+<%= render "homes/top", homes:@homes %><hr><br>
+<p id="notice"><%= notice %></p>
+<h1 style ="margin-top: 5%;">User Accounts</h1>
+
+<div class="container-fluid " style="width: 88%;">
+  <table id="example" class="table table-striped table-bordered" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Designation</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>Phone number</th>
+      <th>City</th>
+      <th>Gender</th>
+      <th>State</th>
+      <th>Relation status</th>
+      <th>Date of birth</th>
+      <th>Zipcode</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_accounts.each do |user_account| %>
+      <tr>
+        <td><%= user_account.first_name %></td>
+        <td><%= user_account.last_name %></td>
+        <td><%= user_account.designation %></td>
+        <td><%= user_account.address1 %></td>
+        <td><%= user_account.address2 %></td>
+        <td><%= user_account.phone_number %></td>
+        <td><%= user_account.city %></td>
+        <td><%= user_account.gender %></td>
+        <td><%= user_account.state %></td>
+        <td><%= user_account.state == true ? "single" : "married"%></td>
+        <td><%= user_account.date_of_birth %></td>
+        <td><%= user_account.zipcode %></td>
+        <td><%= user_account.user_id %></td>
+        <td><%= link_to 'Show', user_account, class: 'btn btn-mini btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_user_account_path(user_account), class: 'btn btn-mini btn-info' %></td>
+        <td><%= link_to 'Destroy', user_account, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</fieldset>
+
+<br>
+
+<%= link_to 'New User Account', new_user_account_path , class: 'btn btn-mini btn-primary'%>
+
+
+<style>
+.dataTables_wrapper .datatable-header .dataTables_filter {
+    float: right;
+    padding: 10px;
+}
+.dataTables_info {
+    float:right
+}
+.dataTables_length{
+  padding-left: 50%;
+  margin-top: -3%;
+  width: 53%;
+}
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#example").DataTable({
+      "order": [],
+      "displayStart": 0,
+      "iDisplayLength": 10,
+      "columnDefs": [ {
+        "targets": [],
+        "orderable": false,
+      } ],
+      // dom:"<'myfilter'f><'mylength'l>t"
+      dom: '<"datatable-header"f><"datatable-scroll"t><"datatable-footer"ipl>',
+      language: {
+        search: '<span>Filter:</span> _INPUT_',
+        lengthMenu: '<span>Show:</span> _MENU_',
+        paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' },
+        emptyTable: "No plans found.",
+      },
+      drawCallback: function () {
+        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+      },
+      preDrawCallback: function() {
+        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+      }
+    });
+
+    $('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+
+    $('.dataTables_length select').select2({
+      minimumResultsForSearch: Infinity,
+      width: 'auto'
+    });
+  });
+</script>

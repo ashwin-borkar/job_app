@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ref_name: MyString
+  ref_contact_number: MyString
+  ref_relation: MyString
+  user_account: one
+
+two:
+  ref_name: MyString
+  ref_contact_number: MyString
+  ref_relation: MyString
+  user_account: two

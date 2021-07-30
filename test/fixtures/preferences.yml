@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_type: MyString
+  notice_period: MyString
+  expected_ctc: MyString
+  current_ctc: MyString
+  department_type: MyString
+  user_account: one
+
+two:
+  location_type: MyString
+  notice_period: MyString
+  expected_ctc: MyString
+  current_ctc: MyString
+  department_type: MyString
+  user_account: two

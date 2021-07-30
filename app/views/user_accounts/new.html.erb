@@ -1,0 +1,16 @@
+
+<%= render "homes/top", homes:@homes %><br>
+
+ <h1 style="margin-left:%; margin-top: 5%;"></h1>
+<div class="d-flex justify-content-center align-items-center container" style="width: 57%;">
+  <div class="card py-5 px-3">
+
+    <fieldset><legend>Personal Details:</legend>
+      <%= render 'form', user_account: @user_account %>
+  </fieldset>
+  </div>
+</div>
+<%= link_to 'Back', user_accounts_path, class: 'btn btn-mini btn-dark' %>
+
+<hr>
+

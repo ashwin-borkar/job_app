@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user_account.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user_account.last_name %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @user_account.designation %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @user_account.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @user_account.address2 %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @user_account.phone_number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_account.city %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @user_account.gender %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_account.state %>
+</p>
+
+<p>
+  <strong>Relation status:</strong>
+  <%= @user_account.relation_status %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @user_account.date_of_birth %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @user_account.zipcode %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_account.user_id %>
+</p>
+
+<% UserAccount::STATUSES.each do |status| %>
+    <%= link_to change_status_user_account_path(@user_account, status: status), method: :patch do %>
+      <%= status %>
+    <% end %>
+  <% end %>
+
+
+<%= link_to 'Edit', edit_user_account_path(@user_account) %> |
+<%= link_to 'Back', user_accounts_path %>

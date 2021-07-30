@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cource_name: MyString
+  university_name: MyString
+  passing_year: MyString
+  percentage: 1
+  user_account: one
+
+two:
+  cource_name: MyString
+  university_name: MyString
+  passing_year: MyString
+  percentage: 1
+  user_account: two

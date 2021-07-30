@@ -1,0 +1,481 @@
+
+<div class="panel panel-flat border-top-xlg">
+  <div class="panel-body">
+  <%= form_with(model: user_account) do |form| %>
+  <%#= hidden_field :user_id, :value => current_user.id %>
+    <input type="hidden" class="form-control" name= "user_id" placeholder="user_id" value="<%= current_user.id%>">
+    <% if user_account.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user_account.errors.count, "error") %> prohibited this user_account from being saved:</h2>
+
+        <ul>
+          <% user_account.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <legend class="text-bold">Basic details </legend>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">first_name</label>
+          <input type="text" class="form-control" name= "first_name" placeholder="first_name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">last_name</label>
+          <input type="text" class="form-control" name= "last_name" placeholder="last_name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">designation</label>
+          <input type="text_area" class="form-control" name= "designation" placeholder="designation">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">address1</label>
+          <input type="text_area" class="form-control" name= "address1" placeholder="address1">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">address2</label>
+          <input type="text_area" class="form-control" name= "address2" placeholder="address2">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">phone_number</label>
+          <input type="text" class="form-control" name= "phone_number" placeholder="phone_number">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= form.label :city ,class: 'control-label'%>
+          <%= form.text_field :city, class: 'form-control'%>
+        </div><br>
+      </div>
+      <div class="col">
+        <div class="field">
+          <%= form.label :gender%>
+          <div class="row">
+             <div class="field">
+              <label>
+                <input type="checkbox" class="radio" value="1" name="male" />Male</label>
+              <label>
+                <input type="checkbox" class="radio" value="1" name="female" />Female</label>
+        </div>
+        </div>
+        </div><br> 
+      </div>
+
+      <div class="col">
+          <div class="form-group">
+            <%= form.label :state ,class: 'control-label'%>
+            <%= form.text_field :state , class: 'form-control'%>
+          </div><br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">date_of_birth</label>
+          <input type="date" class="form-control" name= "date_of_birth" placeholder="date_of_birth">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">relation_status</label>
+          <%= form.select :relation_status, ['single', 'married'],class: 'form-control'%>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">zipcode</label>
+          <input type="text" class="form-control" name= "zipcode" placeholder="zipcode">
+        </div>
+      </div>
+    </div>
+
+    <legend class="text-bold">SSC result </legend>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Name_Of_board</label>
+          <input type="text" class="form-control" name= "Name_Of_board" placeholder="Name_Of_board">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Passiong_year</label>
+          <input type="text" class="form-control" name= "Passiong_year" placeholder="Passiong_year">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Percentage</label>
+          <input type="text_area" class="form-control" name= "Percentage" placeholder="Percentage">
+        </div>
+      </div>
+    </div>
+
+    <legend class="text-bold">hsc result|diploma </legend>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Name_Of_board</label>
+          <input type="text" class="form-control" name= "Name_Of_board" placeholder="Name_Of_board">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Passiong_year</label>
+          <input type="text" class="form-control" name= "Passiong_year" placeholder="Passiong_year">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Percentage</label>
+          <input type="text_area" class="form-control" name= "Percentage" placeholder="Percentage">
+        </div>
+      </div>
+    </div>
+
+   <legend class="text-bold">bachelor degree </legend>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">caurse_name</label>
+          <input type="text_area" class="form-control" name= "caurse_name" placeholder="caurse_name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">university</label>
+          <input type="text_area" class="form-control" name= "university" placeholder="university">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">passiong_year</label>
+          <input type="text" class="form-control" name= "passiong_year" placeholder="passiong_year">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Percentage</label>
+          <input type="text_area" class="form-control" name= "Percentage" placeholder="Percentage">
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-flat border-top-xlg">
+      <div class="panel-body">
+        <legend class="text-bold">Language Known</legend>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">Hindi
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input type="checkbox" class="form-check-input" id="check2" name="read" value="read">Read
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                  <input type="checkbox" class="form-check-input" id="check3" name="write" value="write">Write
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                  <input type="checkbox" class="form-check-input" id="check4" name="speak" value="speak">Speak
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">English
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input type="checkbox" class="form-check-input" id="check2" name="read" value="read">Read
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                  <input type="checkbox" class="form-check-input" id="check3" name="write" value="write">Write
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                  <input type="checkbox" class="form-check-input" id="check4" name="speak" value="speak">Speak
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="form-group">
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check1">
+                    <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">Gujrati
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check2">
+                    <input type="checkbox" class="form-check-input" id="check2" name="read" value="read">Read
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check3">
+                    <input type="checkbox" class="form-check-input" id="check3" name="write" value="write">Write
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check4">
+                    <input type="checkbox" class="form-check-input" id="check4" name="speak" value="speak">Speak
+                  </label>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <legend class="text-bold">Technologies Known</legend>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="php" value="php">PHP
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input type="radio" class="form-check-input" id="check2" name="beginer" value="beginer">Beginer
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                  <input type="radio" class="form-check-input" id="check3" name="mideator" value="mideator">Mideator
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                  <input type="radio" class="form-check-input" id="check4" name="expert" value="expert">Expert
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">Mysql
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input type="radio" class="form-check-input" id="check2" name="beginer" value="beginer">Beginer
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                  <input type="radio" class="form-check-input" id="check3" name="mideator" value="mideator">Mideator
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                  <input type="radio" class="form-check-input" id="check4" name="expert" value="expert">Expert
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+              <div class="form-group">
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check1">
+                    <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">Oracle
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check2">
+                    <input type="radio" class="form-check-input" id="check2" name="beginer" value="beginer">Beginer
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check3">
+                    <input type="radio" class="form-check-input" id="check3" name="mideator" value="mideator">Mideator
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="check4">
+                    <input type="radio" class="form-check-input" id="check4" name="expert" value="expert">Expert
+                  </label>
+                </div>
+              </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="hindi" value="hindi">Laravel
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input type="radio" class="form-check-input" id="check2" name="beginer" value="beginer">Beginer
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                  <input type="radio" class="form-check-input" id="check3" name="mideator" value="mideator">Mideator
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                  <input type="radio" class="form-check-input" id="check4" name="expert" value="expert">Expert
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <legend class="text-bold">Reference Contact</legend>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput" class="control-label">Name</label>
+              <input type="text" class="form-control" name="refernce_name" placeholder="Name">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Contact Number</label>
+              <input type="text" class="form-control" name="reference_contact_number" placeholder="Contact Number">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Relation</label>
+              <input type="text" class="form-control" name= "reference_relation" placeholder="Relation">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Name</label>
+              <input type="text" class="form-control" name="refernce_name" placeholder="Name">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Contact Number</label>
+              <input type="text" class="form-control" name="reference_contact_number" placeholder="Contact Number">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Relation</label>
+              <input type="text" class="form-control" name= "reference_relation" placeholder="Relation">
+            </div>
+          </div>
+        </div>
+
+        <legend class="text-bold">Preference</legend>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Prefered Location</label>
+              <select id="inputState" class="form-control">
+                <option selected>Nagpur</option>
+                <option>Pune</option>
+                <option>Ahmedabad</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Notice Period</label>
+              <input type="text" class="form-control" name="notice_period" placeholder="Notice Period">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Expected Ctc</label>
+              <input type="text" class="form-control" name= "expected_ctc" placeholder="Expected Ctc">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Current Ctc</label>
+              <input type="text" class="form-control" name="current_ctc" placeholder="Current Ctc">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Department</label>
+              <select id="inputState" class="form-control">
+                <option selected>Marketing</option>
+                <option>Design</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit  class: 'btn btn-mini btn-warning submit' %>
+    </div>
+  
+<% end %>
+</div>
+</div>
+
+
+
+
+
+<style type="text/css">
+  select{
+background-color: #f6f6f6;
+border: none;
+color: #0d0d0d;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 5px;
+width: 85%;
+border: 2px solid #f6f6f6;
+-webkit-transition: all 0.5s ease-in-out;
+-moz-transition: all 0.5s ease-in-out;
+-ms-transition: all 0.5s ease-in-out;
+-o-transition: all 0.5s ease-in-out;
+transition: all 0.5s ease-in-out;
+-webkit-border-radius: 5px 5px 5px 5px;
+border-radius: 5px 5px 5px 5px;
+}
+</style>
